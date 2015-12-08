@@ -8,6 +8,15 @@
 
 import UIKit
 
+extension Double {
+    var asLocaleCurrency:String {
+        var formatter = NSNumberFormatter()
+        formatter.numberStyle = .CurrencyStyle
+        formatter.locale = NSLocale.currentLocale()
+        return formatter.stringFromNumber(self)!
+    }
+}
+
 class ViewController: UIViewController {
 
     @IBOutlet weak var billField: UITextField!
@@ -24,8 +33,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        tipsLabel.text = "$0.00"
-        totalLabel.text = "$0.00"
+        tipsLabel.text = 0.0.asLocaleCurrency
+        totalLabel.text = 0.0.asLocaleCurrency
         
         let defaults = NSUserDefaults.standardUserDefaults()
         let index = defaults.objectForKey("default_tipPercentage_Index")
@@ -35,7 +44,6 @@ class ViewController: UIViewController {
         } else {
             tipControl.selectedSegmentIndex = index as! Int
         }
-
         
     }
 
@@ -53,8 +61,10 @@ class ViewController: UIViewController {
         let billAmount = NSString(string: billField.text!).doubleValue
         let tip = billAmount * percentage
         let total = billAmount + tip
-        tipsLabel.text = String(format: "$%.2f", tip)
-        totalLabel.text = String(format: "$%.2f", total)
+//        tipsLabel.text = String(format: "$%.2f", tip)
+//        totalLabel.text = String(format: "$%.2f", total)
+        tipsLabel.text = tip.asLocaleCurrency
+        totalLabel.text = total.asLocaleCurrency
     }
     
     @IBAction func onTap(sender: AnyObject) {
