@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		F7DCE9AC1C14EC05000CA2DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DCE9AB1C14EC05000CA2DB /* AppDelegate.swift */; };
-		F7DCE9AE1C14EC05000CA2DB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DCE9AD1C14EC05000CA2DB /* ViewController.swift */; };
+		F7DCE9AE1C14EC05000CA2DB /* tipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DCE9AD1C14EC05000CA2DB /* tipViewController.swift */; };
 		F7DCE9B11C14EC05000CA2DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7DCE9AF1C14EC05000CA2DB /* Main.storyboard */; };
 		F7DCE9B31C14EC05000CA2DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7DCE9B21C14EC05000CA2DB /* Assets.xcassets */; };
 		F7DCE9C11C14EC05000CA2DB /* tipsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DCE9C01C14EC05000CA2DB /* tipsTests.swift */; };
 		F7DCE9CC1C14EC05000CA2DB /* tipsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DCE9CB1C14EC05000CA2DB /* tipsUITests.swift */; };
 		F7DCE9DA1C14FA64000CA2DB /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DCE9D91C14FA64000CA2DB /* SettingsViewController.swift */; };
+		F7DCE9DC1C167513000CA2DB /* NewTipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DCE9DB1C167513000CA2DB /* NewTipViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +37,7 @@
 /* Begin PBXFileReference section */
 		F7DCE9A81C14EC05000CA2DB /* tips.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tips.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7DCE9AB1C14EC05000CA2DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F7DCE9AD1C14EC05000CA2DB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F7DCE9AD1C14EC05000CA2DB /* tipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tipViewController.swift; sourceTree = "<group>"; };
 		F7DCE9B01C14EC05000CA2DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F7DCE9B21C14EC05000CA2DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F7DCE9B71C14EC05000CA2DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +48,7 @@
 		F7DCE9CB1C14EC05000CA2DB /* tipsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tipsUITests.swift; sourceTree = "<group>"; };
 		F7DCE9CD1C14EC05000CA2DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F7DCE9D91C14FA64000CA2DB /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		F7DCE9DB1C167513000CA2DB /* NewTipViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTipViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,8 +100,9 @@
 			isa = PBXGroup;
 			children = (
 				F7DCE9AB1C14EC05000CA2DB /* AppDelegate.swift */,
-				F7DCE9AD1C14EC05000CA2DB /* ViewController.swift */,
+				F7DCE9AD1C14EC05000CA2DB /* tipViewController.swift */,
 				F7DCE9AF1C14EC05000CA2DB /* Main.storyboard */,
+				F7DCE9DB1C167513000CA2DB /* NewTipViewController.swift */,
 				F7DCE9D91C14FA64000CA2DB /* SettingsViewController.swift */,
 				F7DCE9B21C14EC05000CA2DB /* Assets.xcassets */,
 				F7DCE9B71C14EC05000CA2DB /* Info.plist */,
@@ -255,9 +258,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7DCE9AE1C14EC05000CA2DB /* ViewController.swift in Sources */,
+				F7DCE9AE1C14EC05000CA2DB /* tipViewController.swift in Sources */,
 				F7DCE9AC1C14EC05000CA2DB /* AppDelegate.swift in Sources */,
 				F7DCE9DA1C14FA64000CA2DB /* SettingsViewController.swift in Sources */,
+				F7DCE9DC1C167513000CA2DB /* NewTipViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
