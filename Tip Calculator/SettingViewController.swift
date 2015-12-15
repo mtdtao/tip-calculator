@@ -1,21 +1,21 @@
 //
-//  SettingsViewController.swift
-//  tips
+//  ViewController.swift
+//  Tip Calculator
 //
-//  Created by ZengJintao on 12/6/15.
+//  Created by ZengJintao on 12/14/15.
 //  Copyright © 2015 ZengJintao. All rights reserved.
 //
 
 import UIKit
 
-class SettingsViewController: UIViewController {
-    
-    var defaultTipsIndex:Int!
+class SettingViewController: UIViewController {
 
+    var defaultTipsIndex:Int!
+    
     @IBAction func cancel(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
     }
-
+    
     
     
     @IBOutlet weak var tipControl: UISegmentedControl!
@@ -30,12 +30,12 @@ class SettingsViewController: UIViewController {
         defaults.synchronize()
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "DoneItem" {
-            print("done")
-        }
-    }
-
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        if segue.identifier == "DoneItem" {
+//            print("done")
+//        }
+//    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,22 +52,14 @@ class SettingsViewController: UIViewController {
         
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
     
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
+

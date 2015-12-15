@@ -17,8 +17,8 @@ extension Double {
     }
 }
 
-class NewTipViewController: UIViewController {
-
+class TipViewController: UIViewController {
+    
     
     @IBOutlet weak var billField: UITextField!
     
@@ -26,9 +26,20 @@ class NewTipViewController: UIViewController {
     
     @IBOutlet weak var totalLabel: UILabel!
     
+    @IBOutlet weak var totalLabelBy2: UILabel!
+    
+    @IBOutlet weak var totalLabelBy3: UILabel!
+    
+    @IBOutlet weak var totalLabelBy4: UILabel!
+    
     @IBOutlet weak var tipControl: UISegmentedControl!
     
     @IBOutlet weak var resultView: UIView!
+    
+    @IBOutlet weak var resultToBillField: NSLayoutConstraint!
+    
+    @IBOutlet weak var billFieldToTop: NSLayoutConstraint!
+    
     
     
     let tipPercentages = [0.18, 0.2, 0.22]
@@ -39,6 +50,10 @@ class NewTipViewController: UIViewController {
         
         tipsLabel.text = 0.0.asLocaleCurrency
         totalLabel.text = 0.0.asLocaleCurrency
+        totalLabelBy2.text = 0.0.asLocaleCurrency
+        totalLabelBy3.text = 0.0.asLocaleCurrency
+        totalLabelBy4.text = 0.0.asLocaleCurrency
+        
         
         let defaults = NSUserDefaults.standardUserDefaults()
         let index = defaults.objectForKey("default_tipPercentage_Index")
@@ -49,9 +64,17 @@ class NewTipViewController: UIViewController {
             tipControl.selectedSegmentIndex = index as! Int
         }
         
-        resultView.alpha = 0.2
+        resultView.alpha = 0
+        //        resultView.center = CGPoint(x: self.resultView.center.x, y: CGFloat(550))
+        resultView.hidden = true
         
-        resultView.center = CGPoint(x: self.resultView.center.x, y: CGFloat(550))
+        tipControl.alpha = 0
+        tipControl.hidden = true
+        
+        resultToBillField.constant = 100
+        billFieldToTop.constant = 100
+        
+        billField.becomeFirstResponder()
         
     }
     
@@ -60,21 +83,41 @@ class NewTipViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    
     @IBAction func onEditingChanged(sender: AnyObject) {
         let tipPercentage = tipPercentages[tipControl.selectedSegmentIndex]
+        print(tipPercentage)
         changeTipsAndTotalLabel(tipPercentage)
-        if billField.text != nil {
-//            UIView.animateWithDuration(0.4, animations: { () -> Void in
-//                self.resultView.alpha = 1
-//                self.resultView.frame.origin.y += 200
-//            })
+        if billField.text != "" {
+            
+            self.resultToBillField.constant = 10
+            self.billFieldToTop.constant = 8
+            self.resultView.hidden = false
+            self.tipControl.hidden = false
             UIView.animateWithDuration(0.4, delay: 0, options: .CurveEaseIn, animations: { () -> Void in
+                
+                self.view.layoutIfNeeded()
                 self.resultView.alpha = 1
-                //self.resultView.frame.origin.y += 200
-                self.resultView.center = CGPoint(x: self.resultView.center.x, y: CGFloat(550))
-
+                self.tipControl.alpha = 1
+                
                 }, completion: nil)
+            
         } else {
+            self.resultToBillField.constant = 100
+            self.billFieldToTop.constant = 100
+            UIView.animateWithDuration(0.4, delay: 0, options: .CurveEaseIn, animations: { () -> Void in
+                self.resultView.alpha = 0
+                self.tipControl.alpha = 0
+                self.view.layoutIfNeeded()
+                
+                
+                
+                }, completion: { (Bool) -> Void in
+                    self.resultView.hidden = true
+                    self.tipControl.hidden = true
+            })
+            
             
         }
         
@@ -89,6 +132,9 @@ class NewTipViewController: UIViewController {
         //        totalLabel.text = String(format: "$%.2f", total)
         tipsLabel.text = tip.asLocaleCurrency
         totalLabel.text = total.asLocaleCurrency
+        totalLabelBy2.text = (total/2).asLocaleCurrency
+        totalLabelBy3.text = (total/3).asLocaleCurrency
+        totalLabelBy4.text = (total/4).asLocaleCurrency
     }
     
     @IBAction func onTap(sender: AnyObject) {
@@ -99,7 +145,7 @@ class NewTipViewController: UIViewController {
     @IBAction func unwindToList(segue: UIStoryboardSegue) {
         if segue.identifier == "DoneItem" {
             print("doneeee")
-            let setController = segue.sourceViewController as! SettingsViewController
+            let setController = segue.sourceViewController as! SettingViewController
             if let newpercentage = setController.defaultTipsIndex {
                 changeTipsAndTotalLabel(tipPercentages[newpercentage])
                 tipControl.selectedSegmentIndex = setController.tipControl.selectedSegmentIndex
@@ -107,17 +153,17 @@ class NewTipViewController: UIViewController {
         }
     }
     
-
     
-
+    
+    
     /*
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
     }
     */
-
+    
 }

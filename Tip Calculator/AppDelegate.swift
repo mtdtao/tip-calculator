@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  tips
+//  Tip Calculator
 //
-//  Created by ZengJintao on 12/6/15.
+//  Created by ZengJintao on 12/14/15.
 //  Copyright © 2015 ZengJintao. All rights reserved.
 //
 

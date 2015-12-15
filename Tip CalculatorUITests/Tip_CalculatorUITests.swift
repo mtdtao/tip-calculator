@@ -1,14 +1,14 @@
 //
-//  tipsUITests.swift
-//  tipsUITests
+//  Tip_CalculatorUITests.swift
+//  Tip CalculatorUITests
 //
-//  Created by ZengJintao on 12/6/15.
+//  Created by ZengJintao on 12/14/15.
 //  Copyright © 2015 ZengJintao. All rights reserved.
 //
 
 import XCTest
 
-class tipsUITests: XCTestCase {
+class Tip_CalculatorUITests: XCTestCase {
         
     override func setUp() {
         super.setUp()
